@@ -1,0 +1,60 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+    <title>Projeto - Divina Musica </title>
+    
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="wrapper">
+        <h1>Projeto - Divina Musica</h1>
+    </div>
+    <section class="cards">
+
+        {% for item in itens %}
+
+            <div class="card" id="{{item.id}}">
+                <div class="card_image-container">
+                    <img src="https://img.youtube.com/vi/{{item.id}}/maxresdefault.jpg" alt="{{ item.title }}">
+                    {% if item.featured == featured%}
+                        <div class="featured"></div>
+                    {% endif %}
+                </div>
+
+                <div class="card_content">
+                    <p>{{ item.description }}</p>
+                </div>
+
+                <div class="card_info">
+                    <p>{{ item.information }}</p>
+                    <p class="card_data">{{ item.information01 }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+    </section>
+
+    {% block modal %}
+
+        <div class="modal-overlay">
+            <div class="modal">
+                <a class="close-modal">
+                    <i class="material-icons">close</i>
+                </a>
+
+                <div class="modal-content">
+                    <iframe src="" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+    {% endblock modal %}
+
+    <script src="/scripts.js"></script>
+
+{% endblock content %}
+
